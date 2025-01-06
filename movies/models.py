@@ -11,6 +11,14 @@ class Genre(models.Model):
         return self.name
 
 
+# Why we are drinving Movie class from modele class in django?
+# Bc this class has bunch of methods in CRUD
+# Then is w want to store a movie ibject in the db, we'll just call one of these methods called 'save'.
+# Save method internally take care of generating the right sql statment to update the sql db
+# This is called: db abstration api
+# so this modele class give us an api ( app programming interface)
+# and this api, agets away the complexity of working with a db
+
 class Movie(models.Model):
     title = models.CharField(max_length=255)
     release_year = models.IntegerField()
